@@ -112,7 +112,6 @@ body#bench{
 
 #bench #detail #fin{
     clear: both;
-    display: none;
 }
 
 #bench #detail #fin .status{

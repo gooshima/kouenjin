@@ -7,12 +7,12 @@ $("#sound-file2").get(0).load();//ロード
 $("#sound-file3").get(0).load();//ロード  
 
 k.ready(function(){
-    $("#helloWorld").text("ready！");
+    $("#debugTxt").text("ready！");
     k.analogReadRequest(k.AIO0);   
 });
 
 k.updateAnalogValueAio0(function(data){
-    $("#helloWorld").text(data+"mV");    
+    $("#debugTxt").text(data+"mV");
     k.analogReadRequest(k.AIO0);
     
     fsr_data = parseInt(data);//string to int
@@ -91,8 +91,10 @@ function test_timer()
         time_sitting = 0;//座った時間をクリア
     }
         
-    $("#log").text("last time: "+ time_sitting +"sec");
-    $("#log2").text("total time:"+ time_sitting_total +"sec"); 
+    //$("#log").text("last time: "+ time_sitting +"sec");
+    //$("#log2").text("total time:"+ time_sitting_total +"sec");
+    $("#kouenTimeTxt").text("xx:xx:"+ time_sitting);//TODO change to timer
+    $("#kouenYenTxt").text("¥"+ time_sitting_total);
 }
 
 
@@ -112,15 +114,17 @@ function k_find()
 {
     if(flag_next_find==1)
     {
-            $("#helloWorld").text("Not found. Try change name...");
+            $("#debugTxt").text("Not found. Try change name...");
             k.findWithName(MyKonashiName2);
             flag_next_find = 0;//名前を変えてもダメな場合は k.find()にする
     }
     else
     {
-        $("#helloWorld").text("Not found. Please select name...");
+        $("#debugTxt").text("Not found. Please select name...");
         k.find();
     }
+    $('#ready').hide();
+    $('#run').show();
 }
 //----------------------------------------------------------------------------
 
@@ -129,6 +133,14 @@ function k_find()
 //おおしまさん関数
 function paypal_func(time)
 {
-    alert("paypal:" + time + "sec");   
+    $('#ready').hide();
+    $('#run').hide();
+    $('#conf').show();
+    $('#kouenTotalYenTxt').text("¥" + time);
+
+    setTimeout(function () {
+        window.location.href = 'thanks.html';
+    }, 1000);
+
 }
 

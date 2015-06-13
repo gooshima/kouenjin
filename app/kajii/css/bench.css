@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+body#bench{
+    height: 560px;
+    width: 100%;
+    background-color: #43AC00;
+    background-image: url(../img/bg.png);
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#bench a{
+    color: #43AC00;
+    text-decoration: underline;
+}
+
+#bench #place{
+    margin: 20px;
+}
+
+#bench #place img{
+    float: left;
+    margin-right: 10px;
+}
+
+#bench #place h1{
+    font-size: 20px;
+    color: #fff;
+    float: left;
+    width: 150px;
+    margin-top: 0px;
+}
+
+#bench #detail{
+    position: absolute;
+    top: 80px;
+    margin-left: 25px;
+    width: 260px;
+    background-image: url(../img/body-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#bench #detail h1{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+}
+
+#bench #detail #ready{
+    
+}
+
+#bench #detail #ready .price{
+    font-size: 74px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 50px;
+    color: #43AC00;
+    float: left;
+}
+
+#bench #detail #ready .by{
+    font-size: 30px;
+    margin-top: 60px;
+    color: #999;
+    float: left;
+}
+
+#bench #detail #run{
+    clear: both;
+    display: none;
+}
+
+#bench #detail #run .time{
+    text-align: center;
+    font-size: 34px;
+    margin-top: 10px;
+    color: #999;
+}
+
+#bench #detail #run .money{
+    text-align: center;
+    font-size: 74px;
+    margin-top: -50px;
+    font-weight: bold;
+    color: #43AC00;
+}
+
+#bench #detail #conf{
+    clear: both;
+    display: none;
+}
+
+#bench #detail #conf .money{
+    text-align: center;
+    font-size: 74px;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: #43AC00;
+}
+
+#bench #detail #conf .nav{
+    text-align: center;
+    margin-top: -15px;
+    font-size: 22px;
+    color: #999;
+}
+
+#bench #detail #fin{
+    clear: both;
+}
+
+#bench #detail #fin .status{
+    text-align: center;
+    font-size: 74px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: #43AC00;
+}
+
+#bench #detail #fin .description{
+    text-align: center;
+    margin-top: -20px;
+    font-size: 16px;
+    color: #999;
+}
+
+#bench #detail #fin .nav{
+    text-align: center;
+    margin-top: -15px;
+    font-size: 20px;
+    color: #999;
+}

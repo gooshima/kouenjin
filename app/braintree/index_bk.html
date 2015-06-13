@@ -14,14 +14,14 @@
 -->
 
 <p>test番号
-    4000111111111115</p>
+4000111111111115</p>
 
 <input type="text" value="" id="activityTest">
 
 <form id="checkout" method="post" action="/api/users/1/purchases?sec=12345">
     <div id="payment-form"></div>
     <input type="hidden" name="activity_point" value="" id="inputActivityPoint">
-    <input type="submit" value="Pay $10">
+    <input type="buttn" value="Pay $10" id="submitBtn">
 </form>
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
@@ -35,7 +35,7 @@
     $(function(){
 
         var clientToken;
-        var clientNounce = "";
+        var clientNounce;
 
         $.ajax({
             url: "https://koenjin.herokuapp.com/api/users/1/token",
@@ -67,13 +67,11 @@
             }
         });
 
-        $('#submitBtn').click(function(event){
-            event.preventDefault();
+        $('#submitBtn').click(function(){
             $.ajax({
                 url: "/api/users/1/purchases",
                 type: "POST",
-                dataType: 'json',
-                data: {"payment_method_nonce": clientNounce, "activity_point": "1"},
+                data: clientNounce,
                 success: function (data, textStatus, jqXHR) {
                     console.log(data);
                     console.log(textStatus);
