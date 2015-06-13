@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+
+    <title>Hello World</title>
+
+    <link href="../css/normalize.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery-2.1.3.min.js"></script>
+
+    <style>
+        section{
+            border-bottom: 1px dotted;
+            padding-bottom: 10px;
+        }
+        h4{
+            color: orangered;
+        }
+
+        .debug{
+            padding: 10px;
+        }
+        .debug ul li{
+            margin-bottom: 10px;
+        }
+        button{
+            margin-bottom: 10px;
+        }
+        .btn{
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            //
+        });
+        function runLua(argNum) {
+            var url = "http://kouen/app/lua/hello" + argNum + ".lua";
+            alert(url);
+            $.ajax({
+                url: url,
+                type: "GET",
+                data: 'test',
+                success: function (data, textStatus, jqXHR) {
+                    console.log("success");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log("err");
+                }
+            });
+        }
+    </script>
+</head>
+
+<body id="debug">
+
+<div style="padding: 20px;margin: 0 auto; text-align: center;" class="debug">
+    <p><button class="btn btn-default" onclick="runLua(0)">POST TEST 0</button></p>
+    <p><button class="btn btn-default" onclick="runLua(1)">POST TEST 1</button></p>
+    <p><button class="btn btn-default" onclick="runLua(2)">POST TEST 2</button></p>
+    <p><button class="btn btn-default" onclick="runLua(3)">POST TEST 3</button></p>
+    <p><button class="btn btn-default" onclick="runLua(4)">POST TEST 4</button></p>
+    <p><button class="btn btn-default" onclick="runLua(5)">POST TEST 5</button></p>
+
+    <p><button class="btn btn-default"><a href="lua/debug.lua">デバッグコード (debug.lua)</a></button></p>
+    <p><button class="btn btn-default"><a href="lua/hello1.lua">Hello  World 書き込み</a></button></p>
+    <p><button class="btn btn-default"><a href="../../../PATTERN.DAT">書き込んだファイルの確認</a></button></p>
+</div>
+
+
+</body>
+
+</html>
