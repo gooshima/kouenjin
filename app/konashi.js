@@ -83,13 +83,13 @@ function test_timer()
         //    $('#run').show();
         //}
 
-        if(isFirstSitting != ture){
-            if(state_sitting ==0){
-                $('#ready').hide();
-                $('#run').show();
-                isFirstSitting =true;
-            }
-        }
+        //if(isFirstSitting != ture){
+        //    if(state_sitting ==0){
+        //        $('#ready').hide();
+        //        $('#run').show();
+        //        isFirstSitting =true;
+        //    }
+        //}
 
           time_sitting++;
           time_sitting_total++;
@@ -137,8 +137,8 @@ function k_find()
         $("#debugTxt").text("..");
         k.find();
     }
-    //$('#ready').hide();
-    //$('#run').show();
+    $('#ready').hide();
+    $('#run').show();
 }
 //----------------------------------------------------------------------------
 
