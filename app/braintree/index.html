@@ -4,33 +4,59 @@
     <meta charset="UTF-8">
     <title>test</title>
     <script src="../js/jquery-2.1.3.min.js"></script>
+    <link href="../css/bench.css" rel="stylesheet">
 
 </head>
-<body>
+<body id="bench">
 
 <!--test用カード番号
 4000111111111115
 07/15
 -->
 
-<p>test番号
-    4000111111111115</p>
-
-<input type="text" value="" id="activityTest">
+<section id="payForm">
+<h1><span id="yenTxt" style="color: red"></span> donate for the Buttle hack Park</h1>
 
 <form id="checkout" method="post" action="/api/users/1/purchases?sec=12345">
     <div id="payment-form"></div>
     <input type="hidden" name="activity_point" value="" id="inputActivityPoint">
-    <input type="submit" value="Pay $10">
+    <input type="submit" value="Send Donate">
 </form>
+</section>
+<p>test ID : 4000111111111115</p>
+<p>test Exp : 0715</p>
+
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 <script>
+
+    var FINAL_POINT = 1;
+
+    (function($) {
+        $.extend({
+            getParameter: function getParameter() {
+                /// <summary>
+                /// URLのパラメーターを取得
+                /// </summary>
+
+                var arg  = new Object;
+                var pair = location.search.substring(1).split('&');
+                for(i=0; pair[i]; i++) {
+                    var kv = pair[i].split('=');
+                    arg[kv[0]] = kv[1];
+                }
+                return arg;
+            }
+        });
+        var kouenArg = $.getParameter();
+        FINAL_POINT = kouenArg.activity_point;
+        $('#inputActivityPoint').val(FINAL_POINT);
+        $('#yenTxt').text(FINAL_POINT + ' Yen');
+    })(jQuery);
+
     // We generated a client token for you so you can copy and paste this code
     // and try it out right away. See the section below to generate your
     // own client token.
-
-
 
     $(function(){
 
@@ -39,7 +65,6 @@
 
         $.ajax({
             url: "https://koenjin.herokuapp.com/api/users/1/token",
-            //url: "http://192.168.1.27:9000/api/users/1/token",
             type: "GET",
             success: function (data, textStatus, jqXHR) {
 
@@ -55,6 +80,16 @@
                 console.log(data);
                 console.log(textStatus);
                 console.log("success");
+
+                /** TODO 試したい*/
+                $('#credit-card-number').click(function(){
+                    $('#credit-card-number').val('4000111111111115');
+                });
+                $('#credit-card-number').click(function(){
+                    $('#expiration').val('0715');
+                });
+                /**/
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log("err");
@@ -85,11 +120,10 @@
             });
         });
 
-        $('#activityTest').on( "change", function(){
-            $('#inputActivityPoint').val($('#activityTest').val());
-        });
-
     });
+
+
+
 
 </script>
 

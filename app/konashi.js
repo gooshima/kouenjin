@@ -93,7 +93,7 @@ function test_timer()
         
     //$("#log").text("last time: "+ time_sitting +"sec");
     //$("#log2").text("total time:"+ time_sitting_total +"sec");
-    $("#kouenTimeTxt").text("xx:xx:"+ time_sitting);//TODO change to timer
+    $("#kouenTimeTxt").text("00:00:"+ time_sitting);//TODO change to timer
     $("#kouenYenTxt").text("¥"+ time_sitting_total);
 }
 
@@ -131,12 +131,14 @@ function k_find()
 
 
 //おおしまさん関数
+var finalPoint = 1;
 function paypal_func(time)
 {
     $('#ready').hide();
     $('#run').hide();
     $('#conf').show();
     $('#kouenTotalYenTxt').text("¥" + time);
+    finalPoint = time;
 
     setTimeout(function () {
         window.location.href = 'thanks.html';

@@ -18,7 +18,7 @@
 <body id="bench">
 
 
-<p id='debugTxt'>debug</p>
+<!--<p id='debugTxt'>debug</p>-->
 <!--<p id='log'>log</p>-->
 <!--<p id='log2'>log2</p>-->
 <!-- レジ -->
@@ -57,11 +57,12 @@
         <p class="money" id="kouenTotalYenTxt">¥12</p>
         <p class="nav">
             donate really?<br />
-            <a>CANCEL</a> <a>OK</a>
+            <a>CANCEL</a> <a id="btnReadyToOk" style="color: red; cursor: pointer">OK</a>
         </p>
     </div>
 </section>
 
+<p id='debugTxt'>d</p>
 
 <script src="http://zeptojs.com/zepto.min.js"></script>
 <script src="http://konashi.ux-xu.com/kjs/konashi-bridge.min.js"></script>
@@ -71,6 +72,15 @@
 
 <script>
     $(function(){
+
+//        $('#ready').hide();
+//        $('#run').hide();
+//        $('#conf').show();
+
+        $('#btnReadyToOk').click(function(){
+            //TODO from konashi.js messy..
+            window.location.href = 'braintree?activity_point=' + finalPoint;
+        });
 
     });
 </script>
