@@ -140,9 +140,9 @@ function paypal_func(time)
     $('#kouenTotalYenTxt').text("¥" + time);
     finalPoint = time;
 
-    setTimeout(function () {
-        window.location.href = 'thanks.html';
-    }, 1000);
+    //setTimeout(function () {
+    //    window.location.href = 'thanks.html';
+    //}, 1000);
 
 }
 
