@@ -68,28 +68,26 @@ setInterval(test_timer, 1000);
 
 //なぜかタイマーの中で音が鳴らせないため、このような対応としている
 var flag_sound_on = 0;
-
-isFirstSit = false;
-isStart = false;
-
+var isFirstSitting = false;
 function test_timer()
 {
     time_global++;
     
     //if(time_global%2 == 1) //2secに１回だけサウンドフラグをON
     flag_sound_on =1;
-
     
     if(fsr_data> 1000)//座っている時間をカウント
     {
-        if(isStart != ture){
-            if(isFirstSit === false){
-                isFirstSit = true;
-            }
-            if(isFirstSit){
+        //if(state_sitting ==0){
+        //    $('#ready').hide();
+        //    $('#run').show();
+        //}
+
+        if(isFirstSitting != ture){
+            if(state_sitting ==0){
                 $('#ready').hide();
                 $('#run').show();
-                isStart = true;
+                isFirstSitting =true;
             }
         }
 
@@ -139,7 +137,8 @@ function k_find()
         $("#debugTxt").text("..");
         k.find();
     }
-
+    //$('#ready').hide();
+    //$('#run').show();
 }
 //----------------------------------------------------------------------------
 
