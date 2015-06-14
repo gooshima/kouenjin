@@ -81,19 +81,6 @@
                 console.log(textStatus);
                 console.log("success");
 
-                /** TODO 試したい*/
-                setTimeout(function () {
-                    alert("aaa");
-                    $('#credit-card-number').click(function(){
-                        $('#credit-card-number').val('4000111111111115');
-                    });
-                    $('#credit-card-number').click(function(){
-                        $('#expiration').val('0715');
-                    });
-                }, 1500);
-
-                /**/
-
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log("err");
