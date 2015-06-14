@@ -68,18 +68,34 @@ setInterval(test_timer, 1000);
 
 //なぜかタイマーの中で音が鳴らせないため、このような対応としている
 var flag_sound_on = 0;
+
+isFirstSit = false;
+isStart = false;
+
 function test_timer()
 {
     time_global++;
     
     //if(time_global%2 == 1) //2secに１回だけサウンドフラグをON
-        flag_sound_on =1;      
+    flag_sound_on =1;
+
     
     if(fsr_data> 1000)//座っている時間をカウント
     {
+        if(isStart != ture){
+            if(isFirstSit === false){
+                isFirstSit = true;
+            }
+            if(isFirstSit){
+                $('#ready').hide();
+                $('#run').show();
+                isStart = true;
+            }
+        }
+
           time_sitting++;
           time_sitting_total++;
-        
+
           state_sitting = 1;//座った
     }
     else
@@ -114,17 +130,16 @@ function k_find()
 {
     if(flag_next_find==1)
     {
-            $("#debugTxt").text("Not found. Try change name...");
+            $("#debugTxt").text(".");
             k.findWithName(MyKonashiName2);
             flag_next_find = 0;//名前を変えてもダメな場合は k.find()にする
     }
     else
     {
-        $("#debugTxt").text("Not found. Please select name...");
+        $("#debugTxt").text("..");
         k.find();
     }
-    $('#ready').hide();
-    $('#run').show();
+
 }
 //----------------------------------------------------------------------------
 
