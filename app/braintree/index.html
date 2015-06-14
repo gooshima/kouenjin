@@ -82,12 +82,16 @@
                 console.log("success");
 
                 /** TODO 試したい*/
-                $('#credit-card-number').click(function(){
-                    $('#credit-card-number').val('4000111111111115');
-                });
-                $('#credit-card-number').click(function(){
-                    $('#expiration').val('0715');
-                });
+                setTimeout(function () {
+                    alert("aaa");
+                    $('#credit-card-number').click(function(){
+                        $('#credit-card-number').val('4000111111111115');
+                    });
+                    $('#credit-card-number').click(function(){
+                        $('#expiration').val('0715');
+                    });
+                }, 1500);
+
                 /**/
 
             },
