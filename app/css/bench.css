@@ -37,6 +37,7 @@ body#bench{
     top: 80px;
     margin-left: 25px;
     width: 260px;
+    height:260px;
     background-image: url(../img/body-bg.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -106,7 +107,7 @@ body#bench{
 #bench #detail #conf .nav{
     text-align: center;
     margin-top: -15px;
-    font-size: 22px;
+    font-size: 20px;
     color: #999;
 }
 
